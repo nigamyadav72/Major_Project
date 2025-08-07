@@ -42,7 +42,7 @@ export const cartAPI = {
 
 // Search API
 export const searchAPI = {
-  searchProducts: (query) => api.get(`/search/?q=${query}`),
+  searchProducts: (query) => api.get(`/products/search/?q=${query}`),
   searchByImage: (imageFile) => {
     const formData = new FormData();
     formData.append('image', imageFile);

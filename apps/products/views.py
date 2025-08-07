@@ -129,7 +129,7 @@ class ProductBySlugView(generics.RetrieveAPIView):
         return Response(serializer.data)
 
 class ProductSearchView(generics.ListAPIView):
-    """Enhanced search products by name, description, category, brand, and SKU"""
+    """Simple search products by name, description, category, brand, and SKU"""
     serializer_class = ProductSerializer
     pagination_class = ProductPagination
     
@@ -138,68 +138,38 @@ class ProductSearchView(generics.ListAPIView):
         if not query:
             return Product.objects.none()
         
-        # Split query into words for better matching
-        query_words = query.split()
-        
-        # Base queryset
-        queryset = Product.objects.filter(is_active=True)
-        
-        # Create Q objects for each search field
-        search_conditions = Q()
-        
-        for word in query_words:
-            word_condition = (
-                Q(name__icontains=word) |
-                Q(description__icontains=word) |
-                Q(short_description__icontains=word) |
-                Q(category__name__icontains=word) |
-                Q(brand__name__icontains=word) |
-                Q(sku__icontains=word) |
-                Q(tags__icontains=word)
-            )
-            search_conditions &= word_condition
-        
-        # Also search for exact phrase match
-        exact_phrase_condition = (
+        # Simple search across multiple fields
+        search_condition = (
             Q(name__icontains=query) |
             Q(description__icontains=query) |
             Q(short_description__icontains=query) |
             Q(category__name__icontains=query) |
             Q(brand__name__icontains=query) |
-            Q(sku__icontains=query) |
-            Q(tags__icontains=query)
+            Q(sku__icontains=query)
         )
         
-        # Combine word-based and phrase-based search
-        final_condition = search_conditions | exact_phrase_condition
+        # Apply search filter
+        queryset = Product.objects.filter(
+            is_active=True
+        ).filter(search_condition).select_related('category', 'brand')
         
-        # Apply search and order by relevance
-        queryset = queryset.filter(final_condition).select_related('category', 'brand').prefetch_related('images')
+        # Enhanced ordering: First word matches first, then alphabetical
+        # Use CASE WHEN to prioritize results where name starts with the query
+        from django.db.models import Case, When, IntegerField
         
-        # Order by relevance (exact matches first, then partial matches)
-        queryset = queryset.extra(
-            select={
-                'relevance': """
-                    CASE 
-                        WHEN name ILIKE %s THEN 100
-                        WHEN name ILIKE %s THEN 90
-                        WHEN description ILIKE %s THEN 80
-                        WHEN category__name ILIKE %s THEN 70
-                        WHEN brand__name ILIKE %s THEN 60
-                        WHEN sku ILIKE %s THEN 50
-                        ELSE 10
-                    END
-                """
-            },
-            select_params=[
-                query,  # Exact match
-                f'%{query}%',  # Contains
-                f'%{query}%',  # Description contains
-                f'%{query}%',  # Category contains
-                f'%{query}%',  # Brand contains
-                f'%{query}%',  # SKU contains
-            ]
-        ).order_by('-relevance', 'name')
+        queryset = queryset.annotate(
+            search_priority=Case(
+                # Exact match at the beginning gets highest priority (1)
+                When(name__istartswith=query, then=1),
+                # First word match gets second priority (2)
+                When(name__iregex=r'^' + query.split()[0], then=2),
+                # Contains match gets third priority (3)
+                When(name__icontains=query, then=3),
+                # Other field matches get lowest priority (4)
+                default=4,
+                output_field=IntegerField()
+            )
+        ).order_by('search_priority', 'name')
         
         return queryset
 

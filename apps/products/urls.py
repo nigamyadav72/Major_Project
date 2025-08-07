@@ -9,13 +9,13 @@ urlpatterns = [
     # ✅ Product lookup by SKUs (for image search)
     path('by-skus/', ProductBySKUListView.as_view(), name='products-by-skus'),
 
+    # Product filtering and search (must come before slug patterns)
+    path('search/', views.ProductSearchView.as_view(), name='product-search'),
+    
     # Product CRUD
     path('', views.ProductListCreateView.as_view(), name='product-list-create'),
     path('<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),
     path('<slug:slug>/', views.ProductBySlugView.as_view(), name='product-by-slug'),
-
-    # Product filtering and search
-    path('search/', views.ProductSearchView.as_view(), name='product-search'),
     path('filter/', views.ProductFilterView.as_view(), name='product-filter'),
     path('featured/', views.FeaturedProductsView.as_view(), name='featured-products'),
     path('trending/', views.TrendingProductsView.as_view(), name='trending-products'),
