@@ -189,7 +189,12 @@ export default function Navbar() {
         });
 
         // Step 4: Navigate to results page
-        navigate("/search-results", { state: { results: mergedResults } });
+        navigate("/search-results", { 
+          state: { 
+            results: mergedResults, 
+            searchType: "image" 
+          } 
+        });
       } else {
         alert("No similar products found.");
       }
