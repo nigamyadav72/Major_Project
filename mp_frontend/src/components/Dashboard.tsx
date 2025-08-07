@@ -17,7 +17,7 @@ export default function Dashboard() {
   const [isDark, setIsDark] = useState(() =>
     localStorage.getItem("theme") === "dark"
   );
-
+   
   // Handle toggle & persist
   useEffect(() => {
     if (isDark) {
