@@ -5,25 +5,25 @@ import { Sparkles, Smartphone, Zap } from 'lucide-react';
 import HybridPaginatedProductsList from '@/components/HybridPaginatedProductsList';
 
 const gadgetCategories = [
-  { name: 'Smartphones', image: '/images/gadgets/smartphones.jpg' },
-  { name: 'Wearables', image: '/images/gadgets/wearables.jpg' },
-  { name: 'Drones', image: '/images/gadgets/drones.jpg' },
-  { name: 'Gaming Gear', image: '/images/gadgets/gaming-gear.jpg' },
-  { name: 'Smart Home', image: '/images/gadgets/smart-home.jpg' },
+  { name: 'Smartphones', image: '/assets/smartphone.png' },
+  { name: 'Wearables', image: '/assets/wearables.jpg' },
+  { name: 'Drones', image: '/assets/drones.png' },
+  { name: 'Gaming Gear', image: '/assets/gaming gears.jpg' },
+  { name: 'Smart Home', image: '/assets/smart home.png' },
 ];
 
 const trendingGadgets = [
-  { name: '4K Drone Pro', image: '/images/gadgets/drone-pro.jpg', price: '$899' },
-  { name: 'Wireless Earbuds X', image: '/images/gadgets/earbuds.jpg', price: '$129' },
-  { name: 'Smartwatch Series 5', image: '/images/gadgets/smartwatch-series5.jpg', price: '$249' },
-  { name: 'Mechanical Keyboard', image: '/images/gadgets/mech-keyboard.jpg', price: '$199' },
+  { name: '4K Drone Pro', image: '/assets/4k drone pro.png', price: '$899' },
+  { name: 'Wireless Earbuds X', image: '/assets/wireless earbuds x.jpg', price: '$129' },
+  { name: 'Smartwatch Series 5', image: '/assets/smartwatch series 5.jpg', price: '$249' },
+  { name: 'Mechanical Keyboard', image: '/assets/mechanical keyboard.jpg', price: '$199' },
 ];
 
 const gadgetDeals = [
-  { name: 'VR Headset', image: '/images/gadgets/vr-headset.jpg', oldPrice: '$499', newPrice: '$349', discount: '30%' },
-  { name: 'Portable Charger', image: '/images/gadgets/portable-charger.jpg', oldPrice: '$79', newPrice: '$49', discount: '38%' },
-  { name: 'Bluetooth Speaker Max', image: '/images/gadgets/bluetooth-speaker.jpg', oldPrice: '$149', newPrice: '$99', discount: '34%' },
-  { name: 'Fitness Tracker', image: '/images/gadgets/fitness-tracker.jpg', oldPrice: '$129', newPrice: '$89', discount: '31%' },
+  { name: 'VR Headset', image: '/assets/VR.jpg', oldPrice: '$499', newPrice: '$349', discount: '30%' },
+  { name: 'Portable Charger', image: '/assets/portable charger.jpg', oldPrice: '$79', newPrice: '$49', discount: '38%' },
+  { name: 'Bluetooth Speaker Max', image: '/assets/bluetooth speaker.jpg', oldPrice: '$149', newPrice: '$99', discount: '34%' },
+  { name: 'Fitness Tracker', image: '/assets/fitness tracker.png', oldPrice: '$129', newPrice: '$89', discount: '31%' },
 ];
 
 export default function Gadgets() {
@@ -78,7 +78,7 @@ export default function Gadgets() {
               <img
                 src={category.image}
                 alt={category.name}
-                className="w-full h-44 object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-70 transition-opacity" />
               <h3 className="absolute bottom-4 left-4 text-xl font-semibold text-white drop-shadow-md z-10">
@@ -162,7 +162,7 @@ export default function Gadgets() {
               <img
                 src={deal.image}
                 alt={deal.name}
-                className="w-full h-44 object-contain rounded-lg mb-4"
+                className="w-full h-48 object-contain rounded-lg mb-4"
               />
               <h3 className="font-semibold text-gray-900 dark:text-gray-200 text-lg">{deal.name}</h3>
               <div className="flex items-center gap-3 mt-2">

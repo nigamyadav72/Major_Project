@@ -5,25 +5,25 @@ import { Sparkles, Home, Percent, Search } from 'lucide-react';
 import HybridPaginatedProductsList from '@/components/HybridPaginatedProductsList';
 
 const homeDecorCategories = [
-  { name: 'Modern Minimalist', image: '/images/decor/modern-minimalist.jpg' },
-  { name: 'Rustic Farmhouse', image: '/images/decor/rustic-farmhouse.jpg' },
-  { name: 'Bohemian Chic', image: '/images/decor/bohemian-chic.jpg' },
-  { name: 'Scandinavian', image: '/images/decor/scandinavian.jpg' },
-  { name: 'Industrial Loft', image: '/images/decor/industrial-loft.jpg' },
+  { name: 'Modern Minimalist', image: '/assets/modern minimalist.png' },
+  { name: 'Rustic Farmhouse', image: '/assets/roustic farmhouse.png' },
+  { name: 'Bohemian Chic', image: '/assets/bohemian chic.png' },
+  { name: 'Scandinavian', image: '/assets/scanidinavian.png' },
+  { name: 'Industrial Loft', image: '/assets/industrial loft.jpg' },
 ];
 
 const featuredDecorProducts = [
-  { name: 'Minimalist Wall Clock', image: '/images/decor/wall-clock.jpg', price: '$59' },
-  { name: 'Rustic Wood Coffee Table', image: '/images/decor/coffee-table.jpg', price: '$299' },
-  { name: 'Boho Macramé Wall Hanging', image: '/images/decor/macrame.jpg', price: '$45' },
-  { name: 'Scandi Floor Lamp', image: '/images/decor/floor-lamp.jpg', price: '$120' },
+  { name: 'Minimalist Wall Clock', image: '/assets/minimalistic wall clock.png', price: '$59' },
+  { name: 'Rustic Wood Coffee Table', image: '/assets/coffee table.png', price: '$299' },
+  { name: 'Boho Macramé Wall Hanging', image: '/assets/wall hanging.png', price: '$45' },
+  { name: 'Scandi Floor Lamp', image: '/assets/floor lamp.jpg', price: '$120' },
 ];
 
 const decorDeals = [
-  { name: 'Industrial Pendant Light', image: '/images/decor/pendant-light.jpg', oldPrice: '$150', newPrice: '$99', discount: '34%' },
-  { name: 'Handmade Ceramic Vase', image: '/images/decor/ceramic-vase.jpg', oldPrice: '$80', newPrice: '$55', discount: '31%' },
-  { name: 'Vintage Rug', image: '/images/decor/vintage-rug.jpg', oldPrice: '$220', newPrice: '$160', discount: '27%' },
-  { name: 'Accent Chair', image: '/images/decor/accent-chair.jpg', oldPrice: '$350', newPrice: '$275', discount: '21%' },
+  { name: 'Industrial Pendant Light', image: '/assets/pendant light.png', oldPrice: '$150', newPrice: '$99', discount: '34%' },
+  { name: 'Handmade Ceramic Vase', image: '/assets/ceramic vase.png', oldPrice: '$80', newPrice: '$55', discount: '31%' },
+  { name: 'Vintage Rug', image: '/assets/vintage rug.png', oldPrice: '$220', newPrice: '$160', discount: '27%' },
+  { name: 'Accent Chair', image: '/assets/assent chair.jpg', oldPrice: '$350', newPrice: '$275', discount: '21%' },
 ];
 
 export default function HomeDecor() {
@@ -163,7 +163,7 @@ export default function HomeDecor() {
                   <span className="text-indigo-600 font-bold text-xl">{newPrice}</span>
                 </div>
               </div>
-              <span className="absolute top-3 right-3 bg-indigo-600 text-white px-3 py-1 rounded-full font-semibold shadow-lg text-sm">
+              <span className="absolute top-3 right-3 bg-red-600 text-white px-3 py-1 rounded-full font-semibold shadow-lg text-sm">
                 {discount} OFF
               </span>
             </motion.a>

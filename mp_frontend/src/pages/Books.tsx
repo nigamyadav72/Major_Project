@@ -64,7 +64,7 @@ export default function BooksContent() {
       className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group col-span-1 md:col-span-2"
     >
       <img
-        src="/images/books/biography-banner.jpg"
+        src="/assets/biography.avif"
         alt="Biography"
         className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -80,7 +80,7 @@ export default function BooksContent() {
       className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
     >
       <img
-        src="/images/books/selfhelp-banner.jpg"
+        src="/assets/self help.webp"
         alt="Self-Help"
         className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -99,7 +99,7 @@ export default function BooksContent() {
       className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
     >
       <img
-        src="/images/books/history-banner.jpg"
+        src="/assets/history book.jpg"
         alt="History"
         className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -115,7 +115,7 @@ export default function BooksContent() {
       className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
     >
       <img
-        src="/images/books/philosophy-banner.jpg"
+        src="/assets/philosophy book.jpg"
         alt="Philosophy"
         className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
       />
@@ -131,7 +131,7 @@ export default function BooksContent() {
       className="relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer group"
     >
       <img
-        src="/images/books/children-banner.jpg"
+        src="/assets/children books.webp"
         alt="Children's Books"
         className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500"
       />

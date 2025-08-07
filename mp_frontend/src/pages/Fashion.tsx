@@ -14,15 +14,15 @@ const fashionCollections = [
 const featuredFashion = [
   { name: 'Floral Maxi Dress', image: '/assets/floral maxi.jpg', price: '$89' },
   { name: 'Bomber Jacket', image: '/assets/bombar jacket.jpg', price: '$129' },
-  { name: 'Classic Blazer', image: '/images/fashion/blazer.jpg', price: '$159' },
-  { name: 'High-Waist Jeans', image: '/images/fashion/jeans.jpg', price: '$79' },
+  { name: 'Classic Blazer', image: '/assets/classic blazer.jpg', price: '$159' },
+  { name: 'High-Waist Jeans', image: '/assets/high jean.jpg', price: '$79' },
 ];
 
 const fashionDeals = [
-  { name: 'Leather Boots', image: '/images/fashion/boots.jpg', oldPrice: '$199', newPrice: '$129', discount: '35%' },
-  { name: 'Silk Scarf', image: '/images/fashion/scarf.jpg', oldPrice: '$49', newPrice: '$29', discount: '41%' },
-  { name: 'Denim Jacket', image: '/images/fashion/denim-jacket.jpg', oldPrice: '$149', newPrice: '$99', discount: '33%' },
-  { name: 'Designer Handbag', image: '/images/fashion/handbag.jpg', oldPrice: '$299', newPrice: '$199', discount: '34%' },
+  { name: 'Leather Boots', image: '/assets/leather boots.jpg', oldPrice: '$199', newPrice: '$129', discount: '35%' },
+  { name: 'Silk Scarf', image: '/assets/scarf.png', oldPrice: '$49', newPrice: '$29', discount: '41%' },
+  { name: 'Denim Jacket', image: '/assets/denim jacket.png', oldPrice: '$149', newPrice: '$99', discount: '33%' },
+  { name: 'Designer Handbag', image: '/assets/hand bag.jpg', oldPrice: '$299', newPrice: '$199', discount: '34%' },
 ];
 
 export default function FashionContent() {

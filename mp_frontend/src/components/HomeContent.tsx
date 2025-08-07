@@ -6,17 +6,17 @@ import { categoriesAPI } from '@/api/services';
 // Removed hardcoded featuredCategories
 
 const trendingProducts = [
-  { name: 'Noise Cancelling Headphones', image: '/images/products/headphones.jpg', price: '$199' },
-  { name: 'Smart Watch', image: '/images/products/smartwatch.jpg', price: '$149' },
-  { name: 'Modern Sofa', image: '/images/products/sofa.jpg', price: '$899' },
-  { name: 'Designer Dress', image: '/images/products/dress.jpg', price: '$249' },
+  { name: 'Noise Cancelling Headphones', image: '/assets/noise cancelling headphone.jpg', price: '$199' },
+  { name: 'Smart Watch', image: '/assets/smart watch.jpg', price: '$149' },
+  { name: 'Modern Sofa', image: '/assets/modern sofa.jpg', price: '$899' },
+  { name: 'Designer Dress', image: '/assets/designer dress.jpg', price: '$249' },
 ];
 
 const salesProducts = [
-  { name: 'Bluetooth Speaker', image: '/images/products/speaker.jpg', oldPrice: '$99', newPrice: '$59', discount: '40%' },
-  { name: 'Winter Jacket', image: '/images/products/jacket.jpg', oldPrice: '$179', newPrice: '$109', discount: '39%' },
-  { name: 'LED Lamp', image: '/images/products/lamp.jpg', oldPrice: '$49', newPrice: '$29', discount: '41%' },
-  { name: 'Stylish Sneakers', image: '/images/products/sneakers.jpg', oldPrice: '$129', newPrice: '$89', discount: '31%' },
+  { name: 'Bluetooth Speaker', image: '/assets/bluetooth speaker.jpg', oldPrice: '$99', newPrice: '$59', discount: '40%' },
+  { name: 'Winter Jacket', image: '/assets/winter jacket.jpg', oldPrice: '$179', newPrice: '$109', discount: '39%' },
+  { name: 'LED Lamp', image: '/assets/lamp.jpg', oldPrice: '$49', newPrice: '$29', discount: '41%' },
+  { name: 'Stylish Sneakers', image: '/assets/sneaker.jpg', oldPrice: '$129', newPrice: '$89', discount: '31%' },
 ];
 
 export default function HomeContent() {
@@ -120,9 +120,9 @@ export default function HomeContent() {
               <img
                 src={prod.image}
                 alt={prod.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-50 object-cover"
               />
-              <div className="p-4">
+              <div className="p-3">
                 <h4 className="font-semibold text-gray-800 dark:text-gray-200">{prod.name}</h4>
                 <p className="text-primary font-bold">{prod.price}</p>
               </div>
@@ -166,7 +166,7 @@ export default function HomeContent() {
                   <span className="text-primary font-bold">{item.newPrice}</span>
                 </div>
               </div>
-              <span className="absolute top-2 right-2 bg-accent text-white text-xs font-bold px-2 py-1 rounded-full shadow">
+              <span className="absolute top-2 right-2 bg-red-400 text-black text-xs font-bold px-2 py-1 rounded-full shadow">
                 {item.discount} OFF
               </span>
             </motion.a>
