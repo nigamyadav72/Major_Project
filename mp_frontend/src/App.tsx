@@ -28,6 +28,8 @@ import SearchResults from "./components/SearchResults";
 import ProductDetailPage from "./components/ProductDetailPage";
 
 function App() {
+  console.log('VITE_API_URL:', import.meta.env.VITE_API_URL);
+  console.log('VITE_MODEL_URL:', import.meta.env.VITE_MODEL_URL);
   return (
     <CartProvider>
       <ChatBotProvider>

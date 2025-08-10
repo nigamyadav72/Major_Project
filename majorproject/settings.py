@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'django_extensions',
     
 ]
 SITE_ID = 2
@@ -64,6 +65,7 @@ SITE_ID = 2
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://192.168.1.120:5173",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -251,3 +253,7 @@ RECAPTCHA_SECRET_KEY = '6LfHFYUrAAAAAIpGYjusAkSflMou9S7dmqamtNFT'
 SESSION_COOKIE_AGE = 600  # 10 minutes in seconds
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
+
+
+ALLOWED_HOSTS = ['192.168.1.120', 'localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['http://192.168.1.120:5173']
