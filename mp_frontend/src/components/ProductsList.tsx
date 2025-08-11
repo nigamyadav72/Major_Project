@@ -19,9 +19,9 @@ const ProductsList = ({ categoryId }: ProductsListProps) => {
 
   useEffect(() => {
     if (categoryId) {
-      productsAPI.getByCategory(categoryId).then(res => setProducts(res.data));
+      productsAPI.getByCategory(categoryId).then((res: any) => setProducts(res.data));
     } else {
-      productsAPI.getAll().then(res => setProducts(res.data));
+      productsAPI.getAll().then((res: any) => setProducts(res.data));
     }
   }, [categoryId]);
 

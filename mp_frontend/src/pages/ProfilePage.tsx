@@ -25,7 +25,7 @@ const ProfilePage = () => {
       return;
     }
     authAPI.getProfile()
-      .then(res => setProfile(res.data))
+      .then((res:any) => setProfile(res.data))
       .catch(() => setError('Failed to load profile'))
       .finally(() => setLoading(false));
   }, [navigate]);

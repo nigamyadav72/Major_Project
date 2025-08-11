@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, X, Send, MessageSquare, User, Loader2 } from 'lucide-react';
+import { Bot, X, Send, MessageSquare, Loader2 } from 'lucide-react';
 import { useChatBot } from '@/contexts/ChatBotContext';
 
 interface Message {

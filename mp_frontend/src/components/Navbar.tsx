@@ -44,7 +44,7 @@ export default function Navbar() {
   const [searchMode, setSearchMode] = useState<'text' | 'image'>('text');
   const [searchImage, setSearchImage] = useState<File | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [loading , setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   // Camera functionality states

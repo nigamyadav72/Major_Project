@@ -16,7 +16,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
 
   useEffect(() => {
     if (isOpen && localStorage.getItem('access')) {
-      authAPI.getProfile().then(res => {
+      authAPI.getProfile().then((res: any) => {
         setProfile(res.data);
         setMode('profile');
       });

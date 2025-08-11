@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Mail } from 'lucide-react';
+import { X, Send } from 'lucide-react';
 
 interface FeedbackModalProps {
   isOpen: boolean;

@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
-import { Sparkles, ShoppingBag, Percent, Heart, Star, Zap } from 'lucide-react';
+import { Sparkles, ShoppingBag, Percent } from 'lucide-react';
 import HybridPaginatedProductsList from '@/components/HybridPaginatedProductsList';
 
 const fashionCollections = [

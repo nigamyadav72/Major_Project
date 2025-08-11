@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Heart, Share2, Star, Minus, Plus, Truck, Shield, RotateCcw, MessageCircle, ArrowLeft, CheckCircle } from 'lucide-react';
+import { Heart, Share2, Star, Minus, Plus, Truck, Shield, RotateCcw, MessageCircle, CheckCircle } from 'lucide-react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { productsAPI } from '@/api/services';

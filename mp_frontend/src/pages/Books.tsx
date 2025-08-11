@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
-import { Sparkles, BookOpen, Percent } from 'lucide-react';
+import { Sparkles, BookOpen} from 'lucide-react';
 import HybridPaginatedProductsList from '@/components/HybridPaginatedProductsList';
 
 const bookCategories = [

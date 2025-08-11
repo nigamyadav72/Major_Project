@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
@@ -18,11 +18,12 @@ import { useCart } from "@/contexts/CartContext";
 
 export default function SearchResults() {
   const location = useLocation();
+  const navigate = useNavigate(); // Add this hook for navigation
   const results = location.state?.results || [];
   const searchQuery = location.state?.searchQuery || "";
   const searchType = location.state?.searchType || "text";
   const totalResults = location.state?.totalResults || results.length;
-  const { addToCart } = useCart(); // Add this line
+  const { addToCart } = useCart();
 
   
   // Sort products by similarity in descending order (for image search)
@@ -32,8 +33,16 @@ export default function SearchResults() {
       const similarityB = typeof b.similarity === "number" ? b.similarity : 0;
       return similarityB - similarityA;
     }
-    return 0; // Keep original order for text search
+    return 0; 
   });
+
+  
+  const handleProductClick = (productId
+    : any) => {
+    if (productId) {
+      navigate(`/product/${productId}`);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:to-[#1e1e1e] transition-colors duration-500">
@@ -188,7 +197,8 @@ export default function SearchResults() {
                       >
                         {/* Product card */}
                         <div
-                          className={`h-full rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-pink-500/30 ${getRandomGradient()} border border-gray-200/70 dark:border-gray-800/50`}
+                          className={`h-full rounded-2xl overflow-hidden transition-all duration-300 group-hover:border-pink-500/30 cursor-pointer ${getRandomGradient()} border border-gray-200/70 dark:border-gray-800/50`}
+                          onClick={() => handleProductClick(product.id)}
                         >
                           <div className="relative h-60 overflow-hidden">
                             <img
@@ -221,7 +231,8 @@ export default function SearchResults() {
                             <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 dark:from-black/70">
                               <div className="flex items-center gap-3 w-full">
                                 <button
-                                  onClick={async () => {
+                                  onClick={async (e) => {
+                                    e.stopPropagation(); // Prevent card click when button is clicked
                                     try {
                                       if (product?.id) {
                                         await addToCart(product.id, 1);
@@ -241,7 +252,13 @@ export default function SearchResults() {
                                   Add to Cart
                                 </button>
 
-                                <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all transform translate-y-2 group-hover:translate-y-0 bg-pink-500 hover:bg-pink-600 text-white dark:bg-pink-600 dark:hover:bg-pink-700">
+                                <button 
+                                  onClick={(e) => {
+                                    e.stopPropagation(); // Prevent card click when button is clicked
+                                    handleProductClick(product.id);
+                                  }}
+                                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-all transform translate-y-2 group-hover:translate-y-0 bg-pink-500 hover:bg-pink-600 text-white dark:bg-pink-600 dark:hover:bg-pink-700"
+                                >
                                   <Zap size={16} />
                                   Buy Now
                                 </button>
@@ -289,7 +306,13 @@ export default function SearchResults() {
                               </div>
                             </div>
 
-                            <button className="mt-4 w-full flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-lg transition-all border border-gray-300 hover:border-pink-500 group-hover:bg-gray-100 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white dark:bg-gray-800/50 dark:border-gray-700 dark:hover:bg-gray-800">
+                            <button 
+                              onClick={(e) => {
+                                e.stopPropagation(); // Prevent card click when button is clicked
+                                handleProductClick(product.id);
+                              }}
+                              className="mt-4 w-full flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-lg transition-all border border-gray-300 hover:border-pink-500 group-hover:bg-gray-100 text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white dark:bg-gray-800/50 dark:border-gray-700 dark:hover:bg-gray-800"
+                            >
                               Quick View{" "}
                               <ChevronRight
                                 size={14}
@@ -313,7 +336,7 @@ export default function SearchResults() {
   );
 }
 
-// Combined gradient helper function
+
 function getRandomGradient() {
   const lightGradients = [
     "bg-gradient-to-br from-gray-50 to-gray-100",

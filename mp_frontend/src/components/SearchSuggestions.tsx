@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Search, TrendingUp, Clock } from 'lucide-react';
+import { Search, TrendingUp } from 'lucide-react';
 import { productsAPI } from '@/api/services';
 
 interface SearchSuggestion {
