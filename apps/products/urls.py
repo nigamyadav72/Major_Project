@@ -6,10 +6,10 @@ app_name = 'products'
 
 urlpatterns = [
 
-    # ✅ Product lookup by SKUs (for image search)
+    #Product lookup by SKUs (for image search)
     path('by-skus/', ProductBySKUListView.as_view(), name='products-by-skus'),
 
-    # Product filtering and search (must come before slug patterns)
+    
     path('search/', views.ProductSearchView.as_view(), name='product-search'),
     
     # Product CRUD

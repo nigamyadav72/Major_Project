@@ -46,28 +46,28 @@ class Product(models.Model):
     short_description = models.CharField(max_length=300, blank=True)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     
-    # Pricing
+    
     price = models.DecimalField(max_digits=10, decimal_places=2)
     original_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0)
     
-    # Relationships
+    
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
     
-    # Inventory
+   
     stock = models.IntegerField(default=0)
     stock_status = models.CharField(max_length=20, choices=STOCK_STATUS_CHOICES, default='in_stock')
     sku = models.CharField(max_length=50, unique=True)
     
-    # SEO and Meta
+   
     
-    # Product Status
+  
     is_active = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
     is_trending = models.BooleanField(default=False)  # For trending products
     
-    # Analytics for trending calculation
+   
     view_count = models.IntegerField(default=0)
     purchase_count = models.IntegerField(default=0)
     rating_average = models.DecimalField(max_digits=3, decimal_places=2, default=0.0)

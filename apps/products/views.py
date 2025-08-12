@@ -585,7 +585,7 @@ class OutOfStockProductsView(generics.ListAPIView):
         ).select_related('category', 'brand')
     
 
-# ... other classes like ProductStockView, OutOfStockProductsView, etc. ...
+
 
 # ============================================================================
 # BULK PRODUCT FETCH BY SKU (for FastAPI search results)

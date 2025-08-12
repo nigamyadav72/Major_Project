@@ -5,9 +5,7 @@ from apps.products.models import Product
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    """
-    Serializer for Category model
-    """
+
     product_count = serializers.SerializerMethodField()
     subcategories = serializers.SerializerMethodField()
     parent_name = serializers.CharField(source='parent.name', read_only=True)
